@@ -20,7 +20,7 @@ build = "build.rs"
 arc-swap = "1.5"
 async-trait = { version = "0.1.42", optional = true }
 bitflags = "1.1"
-dbs-snapshot = { version = "1.5.0", optional = true }
+dbs-snapshot = { version = "1.5.2", optional = true }
 io-uring = { version = "0.5.8", optional = true }
 lazy_static = "1.4"
 libc = "0.2.68"
@@ -33,9 +33,9 @@ tokio-uring = { version = "0.4.0", optional = true }
 vmm-sys-util = { version = "0.12.1", optional = true }
 vm-memory = { version = "0.16.1", features = ["backend-mmap"] }
 virtio-queue = { version = "0.14.0", optional = true }
-vhost = { version = "0.6", features = ["vhost-user-slave"], optional = true }
+vhost = { version = "0.11.0", features = ["vhost-user","vhost-user-backend"], optional = true }
 versionize_derive = { version = "0.1.6", optional = true }
-versionize = { version = "0.1.10", optional = true }
+versionize = { version = "0.2.0", optional = true }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 core-foundation-sys = { version = ">=0.8", optional = true }
@@ -66,7 +66,6 @@ virtiofs = ["virtio-queue", "caps", "vmm-sys-util"]
 vhost-user-fs = ["virtiofs", "vhost", "caps"]
 persist = ["dbs-snapshot", "versionize", "versionize_derive"]
 fuse-t = []
-async_io = []
 
 [package.metadata.docs.rs]
 all-features = true
