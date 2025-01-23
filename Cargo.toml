@@ -74,6 +74,3 @@ targets = [
     "aarch64-unknown-linux-gnu",
     "aarch64-apple-darwin",
 ]
-
-[lints.rust]
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(testff)'] }

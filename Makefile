@@ -15,10 +15,10 @@ build:
 
 check: build
 	${CARGO} fmt -- --check
-	${CARGO} clippy ${TARGET} --features="fusedev" --no-default-features -- -Dwarnings
-	${CARGO} clippy ${TARGET} --features="virtiofs" --no-default-features -- -Dwarnings
-	${CARGO} clippy ${TARGET} --features="vhost-user-fs" --no-default-features -- -Dwarnings
-	${CARGO} clippy ${TARGET} --features="fusedev,virtiofs" --no-default-features -- -Dwarnings
+	${CARGO} clippy ${TARGET} --features="fusedev" --no-default-features -- -Dwarnings -A unexpected-cfgs
+	${CARGO} clippy ${TARGET} --features="virtiofs" --no-default-features -- -Dwarnings -A unexpected-cfgs
+	${CARGO} clippy ${TARGET} --features="vhost-user-fs" --no-default-features -- -Dwarnings -A unexpected-cfgs
+	${CARGO} clippy ${TARGET} --features="fusedev,virtiofs" --no-default-features -- -Dwarnings -A unexpected-cfgs
 
 test:
 	${CARGO} test ${TARGET} --features="fusedev" --no-default-features -- --nocapture --skip integration
